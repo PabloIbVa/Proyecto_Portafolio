@@ -1,0 +1,198 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    <div class="logo-container">
+      <div class="logo-box">P</div>
+      <div class="logo-text">
+        <strong>{{ userName }}</strong>
+        <span class="logo-sub">PORTAFOLIO TI</span>
+      </div>
+    </div>
+
+    <div class="center-nav">
+      <ul class="nav-links">
+        <li><a (click)="scrollTo('home')" [class.active]="activeSection === 'home'">Inicio</a></li>
+        <li><a (click)="scrollTo('about')" [class.active]="activeSection === 'about'">Sobre mí</a></li>
+        <li><a (click)="scrollTo('projects')" [class.active]="activeSection === 'projects'">Proyectos</a></li>
+        <li><a (click)="scrollTo('certs')" [class.active]="activeSection === 'certs'">Certificaciones</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section id="home" class="hero-container">
+    <div class="hero-info">
+      <h1 class="main-title">Soluciones<br><span class="highlight">Tecnológicas e Infraestructura.</span></h1>
+      <p class="hero-desc">
+        Estudiante de <strong>Ingeniería en TI</strong> enfocado en el desarrollo de sistemas escalables, automatización y ciberseguridad. Transformando la lógica compleja en herramientas digitales eficientes.
+      </p>
+      <div class="hero-btns">
+        <button class="btn-primary" (click)="scrollTo('projects')">Explorar Proyectos →</button>
+      </div>
+    </div>
+
+    <div class="console-wrapper">
+      <div class="console-window">
+        <div class="console-nav">
+          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="c-title">bash — 80x24</div>
+        </div>
+        <div class="console-content">
+          <p class="prompt">~ pablo_ibarra@portfolio: $</p>
+          <p class="type-out">{{ animatedText }}<span class="cursor">|</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+
+    <div class="about-card">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="photo-frame">
+            <img src="perfil.jpg" alt="Pablo Ivan Ibarra Valencia" class="profile-img">
+          </div>
+          <div class="visual-accent"></div>
+        </div>
+        <div class="about-text">
+          <h2 class="section-label">01. Trayectoria</h2>
+          <h3 class="about-title">Ingeniería en TI | <span class="accent-text">BUAP</span></h3>
+          <p class="bio-para">
+            Soy <strong>Pablo Ivan Ibarra Valencia</strong>, estudiante de Ingeniería en Tecnologías de la Información en la <strong>BUAP</strong>. 
+            Mi pasión por la tecnología nació de la curiosidad por entender el funcionamiento interno de la electrónica, evolucionando hacia la programación y la mecatrónica.
+          </p>
+          <p class="bio-para">
+            Actualmente me especializo en crear aplicaciones robustas y explorar las fronteras de la <strong>ciberseguridad</strong>, siempre buscando implementar las mejores prácticas en el desarrollo de software seguro.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="toolkit-container">
+  <h3 class="toolkit-title">Technical Toolkit</h3>
+  <div class="toolkit-grid">
+    <div class="tool-card">
+      <h4>Lenguajes</h4>
+      <div class="t-tags">
+        <span>Python</span><span>TypeScript</span><span>PHP</span><span>Java (Servlets/JSP)</span><span>SQL</span><span>Bash</span><span>C++</span>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <h4>BI & Analítica</h4>
+      <div class="t-tags">
+        <span>ETL Processes</span><span>Data Warehouse</span><span>Rayleigh Model</span><span>SQL Server</span>
+      </div>
+    </div>
+
+        <div class="tool-card">
+          <h4>Infraestructura</h4>
+          <div class="t-tags">
+            <span>Docker</span><span>ZeroTier (VPN)</span><span>Linux Admin</span>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <h4>Herramientas & Metodologías</h4>
+          <div class="t-tags">
+            <span>Angular</span><span>jQuery/AJAX</span><span>Git</span><span>Balsamiq</span><span>ESP32</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects-section">
+    <div class="section-header">
+      <h2>Galería de Proyectos</h2>
+      <p>Proyectos de ingeniería diseñados para optimizar procesos, analizar datos y fortalecer la seguridad digital.</p>
+    </div>
+
+    <div class="project-grid">
+      <div class="p-card" *ngFor="let p of projects" (click)="openProject(p)">
+        
+        <div class="p-banner">
+          <img [src]="p.image" [alt]="p.title" class="project-card-img">
+          
+          <div class="p-type-badge">{{ p.type }}</div>
+        </div>
+
+        <div class="p-body">
+          <div class="p-tags-row">
+            <span *ngFor="let t of p.tags">{{ t }}</span>
+          </div>
+
+          <h3>{{ p.title }}</h3>
+          
+          <div class="p-footer-link">
+            <span>Ver detalles</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs" class="certs-section">
+    <div class="section-header">
+      <h2>Certificaciones y Logros</h2>
+      <p>Una colección curada de credenciales verificadas y logros técnicos.</p>
+    </div>
+    <div class="certs-list">
+      <div class="cert-item" *ngFor="let c of certifications" (click)="goToCert(c.link)">
+        <div class="cert-icon-box">📜</div>
+        <div class="cert-info">
+          <h3>{{ c.name }}</h3>
+          <p>{{ c.issuer }} • {{ c.date }}</p>
+        </div>
+        <div class="cert-status-box">
+          <span [class]="'tag-status ' + (c.status === 'Completado' ? 'done' : 'prog')">
+            {{ c.status }}
+          </span>
+          <span class="external-link">↗</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="project-overlay" *ngIf="selectedProject" (click)="selectedProject = null">
+  <div class="detail-card" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-badge">{{ selectedProject.type || 'PROYECTO TI' }}</div>
+      <button class="close-btn" (click)="selectedProject = null">
+        <span>Cerrar</span> <i class="close-icon">×</i>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <h3>{{ selectedProject.title }}</h3>
+      <div class="purpose-section">
+        <label>PROPÓSITO DEL PROYECTO</label>
+        <p>{{ selectedProject.purpose }}</p>
+      </div>
+    </div>
+
+    <div class="detail-footer">
+      <a [href]="selectedProject.github" target="_blank" class="action-btn github">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        <span>Código</span>
+      </a>
+      <a [href]="selectedProject.live" target="_blank" class="action-btn demo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 22 3 22 10"/><line x1="14" y1="10" x2="22" y2="2"/></svg>
+        <span>Demo</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <span><strong>{{ userName }}</strong> — 2026</span>
+    <div class="f-socials">
+      <a href="https://github.com/PabloIbVa" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/pablo-ibva-b8a446351/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>

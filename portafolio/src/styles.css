@@ -1,0 +1,15 @@
+/* Importar una fuente moderna y profesional */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a; /* Fondo muy oscuro */
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth; /* Para que el menú se mueva suavemente */
+}
+
+* {
+  box-sizing: border-box;
+}
