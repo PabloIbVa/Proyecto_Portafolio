@@ -66,8 +66,9 @@ export class App implements OnInit {
   ];
 
   certifications = [
-    { name: 'Base de Datos Relacionales: Diseño y Gestión', issuer: 'Edutin', date: 'Ene 2025', status: 'Completado', link: 'https://app.edutin.com/verify/12035062' },
-    { name: 'Google Cybersecurity Certificate', issuer: 'Google', date: '2025', status: 'En progreso', link: '#' }
+    { name: 'Base de Datos Relacionales: Diseño y Gestión', issuer: 'Edutin Academy', date: 'Enero 2025', status: 'Completado', link: 'https://app.edutin.com/verify/12035062' },
+    { name: 'Google Cybersecurity Certificate', issuer: 'Google', date: 'Marzo 2026', status: 'Completado', link: 'https://coursera.org/share/721753c2d2a675ad2a4a159a26f4974d' },
+    { name: 'Google Project Management Professional Certificate', issuer: 'Google', date: 'Mayo 2026', status: 'Pendiente', link: '#' }
   ];
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
