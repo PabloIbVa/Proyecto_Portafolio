@@ -77,8 +77,8 @@
 .main-title { font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
 .highlight { color: white; }
 .hero-desc { color: var(--text-gray); font-size: 1.1rem; max-width: 500px; line-height: 1.6; margin-bottom: 30px; }
-.btn-primary { 
-  background: transparent; color: white; border: 1px solid #444; padding: 12px 28px; 
+.btn-primary {
+  background: transparent; color: white; border: 1px solid #444; padding: 12px 28px;
   border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: 600;
 }
 .btn-primary:hover { background: var(--accent); color: black; border-color: var(--accent); }
@@ -102,7 +102,7 @@ section { padding: 120px 10%; }
 .bio-para { color: var(--text-gray); line-height: 1.8; margin-bottom: 20px; text-align: justify; }
 
 /* Toolkit & Cards */
-.toolkit-grid, 
+.toolkit-grid,
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
 .tool-card, .p-card, .cert-item { background: var(--card); border: 1px solid #222; border-radius: 16px; padding: 30px; transition: 0.3s; }
 .tool-card h4 { color: var(--accent); margin-bottom: 15px; }
@@ -154,7 +154,7 @@ section { padding: 120px 10%; }
 /* Contenedor de la foto con tamaño definido */
 .photo-frame {
   /* Se agrega un ancho máximo para que no sea gigante */
-  max-width: 280px; 
+  max-width: 280px;
   /* Se define una altura para mantener un marco consistente */
   height: 350px;
   border-radius: 20px;
@@ -163,7 +163,7 @@ section { padding: 120px 10%; }
   position: relative;
   z-index: 2;
   /* Para centrarlo si sobra espacio horizontal */
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 /* Estilo necesario para la imagen dentro del marco */
@@ -179,7 +179,7 @@ section { padding: 120px 10%; }
 
 /* Añade esto en la sección de proyectos de tu app.css */
 .p-card:hover .p-banner {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
               url('https://raw.githubusercontent.com/IgniferDev/space-angular/main/src/assets/destination/background-destination-desktop.jpg');
   background-size: cover;
   background-position: center;
@@ -290,7 +290,7 @@ section { padding: 120px 10%; }
   overflow: hidden;
   position: relative;
   background: #151515;
-  
+
   /* Flexbox para asegurar que la imagen esté en el centro muerto */
   display: flex;
   justify-content: center;
