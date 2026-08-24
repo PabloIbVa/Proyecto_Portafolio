@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, PLATFORM_ID, ChangeDetectorRef} from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -68,10 +68,15 @@ export class App implements OnInit {
   certifications = [
     { name: 'Base de Datos Relacionales: Diseño y Gestión', issuer: 'Edutin Academy', date: 'Enero 2025', status: 'Completado', link: 'https://app.edutin.com/verify/12035062' },
     { name: 'Google Cybersecurity Certificate', issuer: 'Google', date: 'Marzo 2026', status: 'Completado', link: 'https://coursera.org/share/721753c2d2a675ad2a4a159a26f4974d' },
-    { name: 'Google Project Management Professional Certificate', issuer: 'Google', date: 'Mayo 2026', status: 'Pendiente', link: '#' }
+    { name: 'Python Certification', issuer: 'freeCodeCamp', date: 'Julio 2026', status: 'Completado', link: 'https://www.freecodecamp.org/certification/fccb7c51b54-fb7a-4ff5-9a0a-5ad66ebeb440/python-v9' },
+    { name: 'Google Project Management Professional Certificate', issuer: 'Google', status: 'Pendiente', link: '#' },
+    { name: 'Google Cloud Engineering Certificate', issuer: 'Google', status: 'Pendiente', link: '#' }
   ];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -81,23 +86,26 @@ export class App implements OnInit {
 
 // Reemplaza la función completa:
 runTypingLoop() {
-  let charIndex = 0;
-  this.animatedText = "";
+    let charIndex = 0;
+    this.animatedText = "";
+    this.cdr.detectChanges(); // Limpia la vista al reiniciar
 
-  const typeChar = () => {
-    if (charIndex < this.fullText.length) {
-      this.animatedText += this.fullText.charAt(charIndex);
-      charIndex++;
-      setTimeout(typeChar, this.typingSpeed);
-    } else {
-      // Al terminar, espera 20 segundos y reinicia
-      setTimeout(() => {
-        this.runTypingLoop();
-      }, this.pauseDuration);
-    }
-  };
-  typeChar();
-}
+    const typeChar = () => {
+      if (charIndex < this.fullText.length) {
+        this.animatedText += this.fullText.charAt(charIndex);
+        charIndex++;
+        this.cdr.detectChanges(); // Fuerza a Angular a pintar cada nuevo carácter
+        setTimeout(typeChar, this.typingSpeed);
+      } else {
+        // Pausa de 20 segundos antes de reiniciar el bucle
+        setTimeout(() => {
+          this.runTypingLoop();
+        }, this.pauseDuration);
+      }
+    };
+
+    typeChar();
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -108,7 +116,6 @@ runTypingLoop() {
       const el = document.getElementById(section);
       if (el) {
         const rect = el.getBoundingClientRect();
-        // Detecta la sección activa cuando cruza el centro de la pantalla
         if (rect.top <= 150 && rect.bottom >= 150) {
           this.activeSection = section;
           break;
