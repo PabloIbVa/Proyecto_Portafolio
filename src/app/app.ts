@@ -32,7 +32,7 @@ export class App implements OnInit {
       tags: ['ESP32', 'Python', 'Arduino IDE', 'C++', 'Node.js'],
       image:'space-invaders.png',
       purpose: 'Desarrollo integral de una plataforma de Interacción Humano-Computadora basada en el clásico Space Invaders. El proyecto integra la construcción de un mando físico personalizado mediante el microcontrolador ESP32 y la programación de una interfaz digital interactiva. Se implementaron protocolos de comunicación en tiempo real, sistemas de retroalimentación visual mediante LEDs RGB y una lógica de juego escalable para estudiar los principios de respuesta y usabilidad en ecosistemas digitales complejos.',
-      github: 'https://github.com/tu-usuario/nombre-repo', // Actualiza con tu link real
+      github: 'https://github.com/IgniferDev/space-angular', // Actualiza con tu link real
       live: 'https://igniferdev.github.io/space-angular/' // Este al ser hardware/software combinado, puedes dejarlo como referencia a la documentación
     },
     {
