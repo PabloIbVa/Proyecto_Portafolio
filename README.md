@@ -1,59 +1,71 @@
-# Portafolio
+# Portafolio — Pablo Ibarra  
+  
+> Portafolio personal de **Pablo Ivan Ibarra Valencia**, estudiante de Ingeniería en TI (BUAP).  
+> Es una Single Page Application construida con **Angular 21** (standalone components + SSR con  
+> Express) que muestra mi trayectoria, stack técnico, proyectos destacados y certificaciones.  
+> Incluye una consola animada con efecto typing, scroll-spy en el navbar y un modal de detalle  
+> por proyecto. El sitio se despliega en **GitHub Pages**.  
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.5.
+## Requisitos
 
-## Development server
+- Node.js + npm 11.6.2 (ver `packageManager` en `package.json`)
+- Angular CLI 21 (los scripts npm ya usan el CLI local; instalarlo global es opcional)
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Inicializar el proyecto
 
 ```bash
-ng generate component component-name
+git clone https://github.com/PabloIbVa/Proyecto_Portafolio.git
+cd Proyecto_Portafolio
+npm install
+npm start          # ng serve → http://localhost:4200/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Comandos útiles
+
+| Comando | Qué hace |
+| :--- | :--- |
+| `npm start` | Servidor de desarrollo en `http://localhost:4200/` |
+| `npm run build` | Build de producción → `dist/portafolio/browser` |
+| `npm run watch` | Build en modo watch (development) |
+| `npm test` | Tests unitarios con Vitest |
+| `npm run serve:ssr:portafolio` | Corre el servidor SSR compilado (`node dist/portafolio/server/server.mjs`) |
+| `npm run deploy` | Build de producción + publicación a GitHub Pages |
+
+## Estructura del proyecto
+
+```
+├── src/
+│   ├── main.ts            # Entry point del browser
+│   ├── server.ts          # Entry point SSR (Express)
+│   ├── styles.css         # Estilos globales
+│   └── app/
+│       ├── app.ts         # Componente raíz `App` (standalone): datos de proyectos,
+│       │                  #   certificaciones, scroll-spy y animación de typing
+│       ├── app.html       # Template del portafolio
+│       └── app.css        # Estilos del componente
+├── public/                # Assets estáticos (imágenes de proyectos, favicon)
+├── angular.json           # Config de build/serve/test/deploy
+└── package.json           # Scripts npm y dependencias
+```
+
+## Deploy a GitHub Pages
+
+El sitio vive en `https://<usuario>.github.io/Proyecto_Portafolio/`, por eso el build usa `--base-href /Proyecto_Portafolio/`.
 
 ```bash
-ng generate --help
+npm run deploy
 ```
 
-## Building
+### Importante: carpeta duplicada en el script deploy
 
-To build the project run:
+El script `deploy` en `package.json` apunta a `dist/portafolio/browser/browser`, pero el `outputPath` real configurado en `angular.json` es `dist/portafolio/browser`. El `browser` extra está de más.
 
 ```bash
-ng build
+ng build --configuration production --base-href /Proyecto_Portafolio/ && npx angular-cli-ghpages --dir=dist/portafolio/browser --no-silent
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+**File:** angular.json (L20-20)
+```json
+            "outputPath": "dist/portafolio/browser",
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
