@@ -1,10 +1,8 @@
 # Portafolio — Pablo Ibarra  
   
 > Portafolio personal de **Pablo Ivan Ibarra Valencia**, estudiante de Ingeniería en TI (BUAP).  
-> Es una Single Page Application construida con **Angular 21** (standalone components + SSR con  
-> Express) que muestra mi trayectoria, stack técnico, proyectos destacados y certificaciones.  
-> Incluye una consola animada con efecto typing, scroll-spy en el navbar y un modal de detalle  
-> por proyecto. El sitio se despliega en **GitHub Pages**.  
+> Es una Single Page Application construida con **Angular 21** (standalone components + SSR con Express) que muestra mi trayectoria, stack técnico, proyectos destacados y certificaciones.  
+> Incluye una consola animada con efecto typing, scroll-spy en el navbar y un modal de detalle por proyecto. El sitio se despliega en **GitHub Pages**.  
 
 ## Requisitos
 
